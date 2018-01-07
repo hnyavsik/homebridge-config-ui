@@ -28,13 +28,46 @@
 
         .mdc-toolbar--fixed {
             box-shadow: none;
-            /*background: #424242;*/
+
         }
 
         .mdc-elevation--z8 {
             box-shadow: none;
             border-right: 1px solid #424242;
 
+        }
+
+        /* dark mode */
+
+        body.dark-mode content {
+            background: #212121;
+        }
+
+        .dark-mode .mdc-toolbar--fixed {
+            background: #424242;
+        }
+
+        .dark-mode .pin,
+        .dark-mode .mdc-elevation--z4 {
+            background-color: #353535 !important;
+            color: white !important;
+        }
+
+        .dark-mode * {
+            color: #d1d1d1 !important;
+        }
+
+        .dark-mode .index .welcome .pin img {
+            filter: invert(1);
+        }
+
+        .dark-mode .mdc-simple-menu {
+            background: #353535;
+        }
+
+        .dark-mode .CodeMirror {
+            background: #212121;
+            border-radius: .25rem;
         }
 
     </style>
@@ -103,6 +136,91 @@
         mdc.autoInit();
 
     </script>
+    <script>
+        ! function(e) {
+            "function" == typeof define && define.amd ? define(["jquery"], e) : "object" == typeof exports ? module.exports = e(require("jquery")) : e(jQuery)
+        }(function(e) {
+            function i(e) {
+                return d.raw ? e : encodeURIComponent(e)
+            }
+
+            function o(e) {
+                return d.raw ? e : decodeURIComponent(e)
+            }
+
+            function r(e) {
+                return i(d.json ? JSON.stringify(e) : String(e))
+            }
+
+            function t(e) {
+                0 === e.indexOf('"') && (e = e.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, "\\"));
+                try {
+                    return e = decodeURIComponent(e.replace(n, " ")), d.json ? JSON.parse(e) : e
+                } catch (i) {}
+            }
+
+            function c(n, i) {
+                var o = d.raw ? n : t(n);
+                return e.isFunction(i) ? i(o) : o
+            }
+            var n = /\+/g,
+                d = e.cookie = function(n, t, u) {
+                    if (arguments.length > 1 && !e.isFunction(t)) {
+                        if (u = e.extend({}, d.defaults, u), "number" == typeof u.expires) {
+                            var a = u.expires,
+                                s = u.expires = new Date;
+                            s.setMilliseconds(s.getMilliseconds() + 864e5 * a)
+                        }
+                        return document.cookie = [i(n), "=", r(t), u.expires ? "; expires=" + u.expires.toUTCString() : "", u.path ? "; path=" + u.path : "", u.domain ? "; domain=" + u.domain : "", u.secure ? "; secure" : ""].join("")
+                    }
+                    for (var f = n ? void 0 : {}, p = document.cookie ? document.cookie.split("; ") : [], l = 0, m = p.length; m > l; l++) {
+                        var k = p[l].split("="),
+                            g = o(k.shift()),
+                            h = k.join("=");
+                        if (n === g) {
+                            f = c(h, t);
+                            break
+                        }
+                        n || void 0 === (h = c(h)) || (f[g] = h)
+                    }
+                    return f
+                };
+            d.defaults = {}, e.removeCookie = function(n, i) {
+                return e.cookie(n, "", e.extend({}, i, {
+                    expires: -1
+                })), !e.cookie(n)
+            }
+        });
+
+    </script>
+    <script>
+        function createCookie(e, n, i) {
+            if (i) {
+                var o = new Date;
+                o.setTime(o.getTime() + 24 * i * 60 * 60 * 1e3);
+                var r = "; expires=" + o.toGMTString()
+            } else var r = "";
+            document.cookie = e + "=" + n + r + "; path=/"
+        }
+
+        function readCookie(e) {
+            for (var n = e + "=", i = document.cookie.split(";"), o = 0; o < i.length; o++) {
+                for (var r = i[o];
+                    " " == r.charAt(0);) r = r.substring(1, r.length);
+                if (0 == r.indexOf(n)) return r.substring(n.length, r.length)
+            }
+            return null
+        }
+
+        function eraseCookie(e) {
+            createCookie(e, "", -1)
+        }
+        $("input#dark-mode").change(function() {
+            $(this).is(":checked") ? ($("body").addClass("dark-mode"), createCookie("darkside", "nolight", 1e3)) : ($("body").removeClass("dark-mode"), eraseCookie("darkside", "nolight"))
+        }), readCookie("darkside") && ($("body").addClass("dark-mode"), $("input#dark-mode").attr("checked", "checked"));
+
+    </script>
+
 </body>
 
 </html>

@@ -36,6 +36,21 @@
                     <div class="pin mdc-elevation--z4">
                         <img src="/pin" />
                     </div>
+
+                    <br>
+                    <div class="mdc-form-field">
+                        <div class="mdc-checkbox">
+                            <input id="dark-mode" type="checkbox" id="basic-checkbox" class="mdc-checkbox__native-control">
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                  <path class="mdc-checkbox__checkmark__path" fill="none" stroke="white" d="M1.73,12.91 8.1,19.28 22.79,4.59"></path>
+                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                        </div>
+                        <label for="basic-checkbox">Dark Mode</label>
+                    </div>
+
                     <p>
                         With the camera on your iOS device, scan this eight-digit HomeKit code, or enter manually, to add to Apple Home.
                     </p>
@@ -57,10 +72,7 @@
                                 <span class="mdc-list-item__text__secondary">Version {{server.installed}}</span>
                             </span>
                             {{#user.admin}}
-                            <button type="button" class="upgrade-server-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple" version="{{server.version}}">Upgrade</button>
-                            {{/user.admin}}
-                            {{/update}}
-                            {{^update}}
+                            <button type="button" class="upgrade-server-button mdc-button mdc-button--raised mdc-button--primary mdc-ripple-surface" data-mdc-auto-init="MDCRipple" version="{{server.version}}">Upgrade</button> {{/user.admin}} {{/update}} {{^update}}
                             <span class="mdc-list-item__start-detail status-item green-bg" role="presentation">
                                 <i class="material-icons" aria-hidden="true">&#xE627;</i>
                             </span>
