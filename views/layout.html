@@ -15,11 +15,6 @@
     {{/controller}}
 
     <style>
-        /*body,
-        content {
-            background: #353535;
-        }*/
-
         .mdc-elevation--z4 {
             border-radius: .25rem;
             border: 1px solid rgba(0, 0, 0, .125);
@@ -28,17 +23,14 @@
 
         .mdc-toolbar--fixed {
             box-shadow: none;
-            border-bottom: 1px solid #353535;
-
         }
 
         .mdc-elevation--z8 {
             box-shadow: none;
-            border-right: 1px solid #424242;
 
         }
 
-        /* dark mode */
+        /* Dark Mode */
 
         body.dark-mode content {
             background: #212121;
@@ -46,6 +38,7 @@
 
         .dark-mode .mdc-toolbar--fixed {
             background: #424242;
+            border-bottom: 1px solid #353535;
         }
 
         .dark-mode .pin,
@@ -71,13 +64,17 @@
             border-radius: .25rem;
         }
 
-        /* Code */
+        .dark-mode .mdc-dialog__surface {
+            background: #424242;
+        }
+
+        /* Code Mirror */
 
         .CodeMirror {
             width: 1250px;
         }
 
-        @media screen and (max-width: 700px) {
+        @media screen and (max-width: 600px) {
             .config table tbody tr td,
             .plugins table tbody tr td {
                 height: inherit;
