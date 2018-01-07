@@ -40,7 +40,7 @@
 </aside>
 <div class="plugin-search-form">
     <form id="search-form">
-        <input type="search" class="mdc-textfield__input" id="search" name="search" value="{{search}}">
+        <input type="search" class="mdc-textfield__input" id="search" name="search" value="{{search}}" placeholder="Search...">
     </form>
 </div>
 </br>
@@ -51,8 +51,7 @@
         <section class="mdc-card__primary">
             {{#update}}
             <h2 class="installed-tag mdc-card__subtitle">Update Available</h2>
-            {{/update}}
-            {{^update}}
+            {{/update}} {{^update}}
             <h2 class="installed-tag mdc-card__subtitle">Installed</h2>
             {{/update}}
             <h1 class="mdc-card__title mdc-card__title--large">{{description}}</h1>
@@ -60,23 +59,18 @@
         </section>
         <section class="mdc-card__actions">
             {{#links.npm}}
-            <button class="mdc-button mdc-button--compact mdc-card__action" onclick="window.open('{{links.npm}}', '_blank');">NPM</button>
-            {{/links.npm}}
-            {{#update}}
-            <button class="plugin-action-button mdc-button mdc-button--compact mdc-card__action" action="upgrade" package="{{name}}" version="{{version}}">Upgrade</button>
-            {{/update}}
+            <button class="mdc-button mdc-button--compact mdc-card__action" onclick="window.open('{{links.npm}}', '_blank');">NPM</button> {{/links.npm}} {{#update}}
+            <button class="plugin-action-button mdc-button mdc-button--compact mdc-card__action" action="upgrade" package="{{name}}" version="{{version}}">Upgrade</button> {{/update}}
             <button class="plugin-action-button mdc-button mdc-button--compact mdc-card__action" action="uninstall" package="{{name}}">Uninstall</button>
         </section>
-        {{/installed}}
-        {{^installed}}
+        {{/installed}} {{^installed}}
         <section class="mdc-card__primary">
             <h1 class="mdc-card__title mdc-card__title--large">{{description}}</h1>
             <h2 class="mdc-card__subtitle">{{name}} {{version}}</h2>
         </section>
         <section class="mdc-card__actions">
             {{#links.npm}}
-            <button class="mdc-button mdc-button--compact mdc-card__action" onclick="window.open('{{links.npm}}', '_blank');">NPM</button>
-            {{/links.npm}}
+            <button class="mdc-button mdc-button--compact mdc-card__action" onclick="window.open('{{links.npm}}', '_blank');">NPM</button> {{/links.npm}}
             <button class="plugin-action-button mdc-button mdc-button--compact mdc-card__action" action="install" package="{{name}}">Install</button>
         </section>
         {{/installed}}

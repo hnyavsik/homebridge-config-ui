@@ -15,7 +15,8 @@
     {{/controller}}
 
     <style>
-        .mdc-elevation--z4 {
+        .mdc-elevation--z4,
+        .mdc-card {
             border-radius: .25rem;
             border: 1px solid rgba(0, 0, 0, .125);
             box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
@@ -27,8 +28,23 @@
 
         .mdc-elevation--z8 {
             box-shadow: none;
-
         }
+
+        input[type=search] {
+            background: #ededed url(https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_search_black_24px.svg) no-repeat 9px center;
+            border-radius: .25rem;
+            padding-left: 45px;
+        }
+
+        .plugins .plugin-search-form {
+            padding: 15px 20px;
+        }
+
+        .plugins .plugin-cards {
+            margin-top: 65px;
+            border-top: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
 
         /* Dark Mode */
 
@@ -38,7 +54,11 @@
 
         .dark-mode .mdc-toolbar--fixed {
             background: #424242;
-            border-bottom: 1px solid #353535;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mdc-elevation--z8 {
+            border-right: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .dark-mode .pin,
@@ -66,6 +86,24 @@
 
         .dark-mode .mdc-dialog__surface {
             background: #424242;
+        }
+
+        .dark-mode .mdc-card {
+            background: #353535;
+        }
+
+        .dark-mode .plugins .plugin-cards {
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .dark-mode input[type=search] {
+            background: #353535 url(https://storage.googleapis.com/material-icons/external-assets/v4/icons/svg/ic_search_white_24px.svg) no-repeat 9px center;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .dark-mode input[type=search]::placeholder {
+            color: white;
         }
 
         /* Code Mirror */
