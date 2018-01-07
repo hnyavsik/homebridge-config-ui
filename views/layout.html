@@ -28,6 +28,7 @@
 
         .mdc-toolbar--fixed {
             box-shadow: none;
+            border-bottom: 1px solid #353535;
 
         }
 
@@ -68,6 +69,29 @@
         .dark-mode .CodeMirror {
             background: #212121;
             border-radius: .25rem;
+        }
+
+        /* Code */
+
+        .CodeMirror {
+            width: 1250px;
+        }
+
+        @media screen and (max-width: 700px) {
+            .config table tbody tr td,
+            .plugins table tbody tr td {
+                height: inherit;
+            }
+
+            .config table tbody tr td:first-child {
+                width: 100%;
+                display: block;
+            }
+
+            .config table tbody tr td,
+            .plugins table tbody tr td {
+                display: block;
+            }
         }
 
     </style>
