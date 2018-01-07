@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -8,21 +9,58 @@
     <link rel="stylesheet" href="/styles/material.css" />
     <script src="/scripts/jquery.min.js"></script>
     <script src="/scripts/material.web.min.js"></script>
+
+    <style>
+        h1 {
+            color: white;
+        }
+
+        content {
+            border: 0;
+        }
+
+        .login .login-form {
+            background-color: rgba(255, 255, 255, 0.95);
+            text-align: inherit;
+            max-width: 380px;
+        }
+
+        .mdc-elevation--z4 {
+            border-radius: .25rem;
+            border: 1px solid rgba(0, 0, 0, .125);
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
+        center {
+            margin-top: 70px;
+        }
+
+        center img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+    </style>
 </head>
+
 <body class="mdc-typography">
-    <header class="mdc-toolbar mdc-toolbar--fixed">
-        <div class="mdc-toolbar__row">
-            <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-                <span class="title mdc-toolbar__title">HB</span>
-            </section>
-        </div>
-    </header>
     <main class="{{controller}}">
         <content>
             <table cellspacing="0" cellpadding="0" border="0">
                 <tbody>
                     <tr>
                         <td>
+
+                            <center>
+                                <img src="https://i.imgur.com/i8zK4Vq.png" alt="">
+                            </center>
+
+                            <h1>Login</h1>
+
                             <div class="login-form mdc-elevation--z4">
                                 <form method="post">
                                     <div class="mdc-form-field">
@@ -49,6 +87,8 @@
     </main>
     <script>
         mdc.autoInit()
+
     </script>
 </body>
+
 </html>
